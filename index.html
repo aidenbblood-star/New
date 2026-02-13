@@ -143,15 +143,26 @@
     
     document.head.appendChild(script);
 
-    // SEARCH LOGIC (FIXED BRACKETS)
-    document.getElementById('game-search').addEventListener('input', (e) => {
-        const val = e.target.value.toLowerCase();
-        document.querySelectorAll('.game-btn').forEach(btn => {
-            btn.style.display = btn.innerText.toLowerCase().includes(val) ? "inline-block" : "none";
-        });
-        document.querySelectorAll('div[id^="section-"]').forEach(sec => {
-            const hasVisible = Array.from(sec.querySelectorAll('.game-btn')).some(b => b.style.display !== 'none');
-            sec.style.display = hasVisible ? "block" : "none";
+    // SEARCH LOGIC (FIXED CENTERING & WIDTH)
+document.getElementById('game-search').addEventListener('input', (e) => {
+    const val = e.target.value.toLowerCase();
+    
+    // 1. Filter Buttons
+    document.querySelectorAll('.game-btn').forEach(btn => {
+        // CHANGED: Using "block" instead of "inline-block" keeps the long bar shape
+        btn.style.display = btn.innerText.toLowerCase().includes(val) ? "block" : "none";
+    });
+
+    // 2. Filter Sections (Headers)
+    document.querySelectorAll('div[id^="section-"]').forEach(sec => {
+        const hasVisible = Array.from(sec.querySelectorAll('.game-btn'))
+                                .some(b => b.style.display !== 'none');
+        
+        // This hides the letter header if no games match inside it
+        sec.style.display = hasVisible ? "block" : "none";
+    });
+});
+
         });
     });
 </script>
