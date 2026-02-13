@@ -143,31 +143,29 @@
     
     document.head.appendChild(script);
 
-  // 2. UPDATED SEARCH LOGIC (FIXED SELECTOR)
-// We use querySelector('.game-search') to match the CLASS in your HTML
-const searchBar = document.querySelector('.game-search');
+  // 3. THE FIXED SEARCH (Works for Class or ID)
+    // We target both .game-search and #game-search to be 100% sure it works
+    const searchBar = document.querySelector('.game-search') || document.getElementById('game-search');
 
-if (searchBar) {
-    searchBar.addEventListener('input', (e) => {
-        const val = e.target.value.toLowerCase();
-        
-        // Filter every game button
-        document.querySelectorAll('.game-btn').forEach(btn => {
-            // "block" keeps them as long, centered bars
-            btn.style.display = btn.innerText.toLowerCase().includes(val) ? "block" : "none";
+    if (searchBar) {
+        searchBar.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            
+            // Filter the game buttons
+            document.querySelectorAll('.game-btn').forEach(btn => {
+                const isMatch = btn.innerText.toLowerCase().includes(val);
+                // Keeping "block" ensures they stay as long, centered bars
+                btn.style.display = isMatch ? "block" : "none";
+            });
+
+            // Hide the letter sections (like the "1" in your image) if they are empty
+            document.querySelectorAll('div[id^="section-"]').forEach(sec => {
+                const hasVisible = Array.from(sec.querySelectorAll('.game-btn'))
+                                        .some(b => b.style.display !== 'none');
+                sec.style.display = hasVisible ? "block" : "none";
+            });
         });
-
-        // Hide empty letter headers (1, A, B, etc.)
-        document.querySelectorAll('div[id^="section-"]').forEach(sec => {
-            const hasVisible = Array.from(sec.querySelectorAll('.game-btn'))
-                                    .some(b => b.style.display !== 'none');
-            sec.style.display = hasVisible ? "block" : "none";
-        });
-    });
-} else {
-    console.error("Search bar not found! Make sure your input has class='game-search'");
-}
-
+    }
 
       
 </script>
