@@ -3,97 +3,124 @@
 <head>
     <title>Ultimate Game Hub</title>
 <style>
-    /* 1. Base Setup - Forces everything to center */
-    body { 
-        background-color: #000; 
+    /* 1. Global Reset - Forces entire screen to be solid black */
+    html, body { 
+        background-color: #000 !important; 
         color: #fff; 
-        font-family: sans-serif; 
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        width: 100%;
         display: flex; 
         flex-direction: column; 
-        align-items: center; /* Centers items horizontally */
-        justify-content: flex-start;
-        padding: 40px 0; 
-        margin: 0;
-        width: 100%;
+        align-items: center; 
+        overflow-x: hidden;
     }
 
-    /* 2. Neon Glowing Header - Centered */
+    /* 2. Neon Glowing Header - Perfectly Centered */
     h1 {
-        font-size: 3.5rem;
-        margin-bottom: 20px;
+        font-size: 4rem;
+        margin-top: 60px;
+        margin-bottom: 30px;
         color: #fff;
         text-align: center;
         text-transform: uppercase;
-        /* THE NEON GLOW */
+        letter-spacing: 5px;
+        /* Intense Cyan Neon Glow */
         text-shadow: 
             0 0 5px #fff, 
             0 0 10px #fff, 
             0 0 20px #00f2ff, 
             0 0 40px #00f2ff, 
-            0 0 80px #00f2ff;
+            0 0 80px #00f2ff,
+            0 0 100px #00f2ff;
     }
 
-    /* 3. The Long Bar (Search Bar) - Centered at 90% */
+    /* 3. The Long Bar (Search Bar) - Centered & Rounded */
     .game-search { 
         width: 90%; 
         max-width: 1100px; 
-        padding: 18px 30px; 
-        background: #111; 
+        padding: 22px 35px; 
+        background: #0a0a0a; 
         border: 2px solid #00f2ff; 
         border-radius: 50px; 
         color: #fff; 
-        margin: 20px auto 50px auto; /* "auto" centers it */
-        font-size: 1.2rem;
+        margin: 20px auto 60px auto; 
+        font-size: 1.3rem;
         outline: none;
         display: block;
-        box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        text-align: center; /* Centers the placeholder text */
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        box-sizing: border-box;
+        transition: 0.4s ease;
     }
 
-    /* 4. Games Container - Centers the stack of buttons */
+    .game-search:focus {
+        box-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
+        background: #111;
+        transform: scale(1.01);
+    }
+
+    /* 4. Container for Game Bars */
     #sections-container { 
         display: flex; 
         flex-direction: column; 
         align-items: center; 
         width: 100%; 
+        padding-bottom: 100px;
     }
 
-    /* 5. Letter Header Alignment */
+    /* 5. Letter Headers - Centered with Glow */
     .letter-header { 
         color: #00f2ff; 
-        font-size: 1.8rem; 
-        margin: 40px 0 20px 0; 
+        font-size: 2.5rem; 
+        margin: 60px 0 25px 0; 
         border-bottom: 2px solid #1a1a1a; 
         width: 90%; 
         max-width: 1100px; 
-        text-align: left; /* Header stays left of the bar */
-        padding-left: 20px;
-        text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        text-align: center; /* Centers the A, B, C, etc. */
+        padding-bottom: 10px;
+        text-shadow: 0 0 15px rgba(0, 242, 255, 0.8);
+        font-weight: bold;
+        letter-spacing: 10px;
+        box-sizing: border-box;
     }
 
-    /* 6. Game Buttons - The Long Bars */
+    /* 6. Game Buttons - The Long "Pill" Bars */
     .game-btn { 
         background: #080808; 
         border: 1px solid #222; 
-        color: #fff; 
-        padding: 20px 40px; 
-        margin: 10px auto; /* Centers the bar itself */
+        color: #bbb; 
+        padding: 22px 45px; 
+        margin: 12px 0;
         border-radius: 50px; 
         width: 90%;          
         max-width: 1100px;   
         cursor: pointer; 
-        transition: 0.3s; 
-        font-size: 1.1rem;
-        text-align: left;    
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        font-size: 1.2rem;
+        text-align: left;    /* Keeps game names on the left of the bar */
         display: block;
+        box-sizing: border-box;
+        text-transform: capitalize;
     }
 
+    /* 7. Hover Effect for Game Bars */
     .game-btn:hover { 
         border-color: #00f2ff; 
+        color: #fff; 
         background: #111;
-        box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); 
-        transform: scale(1.01);
+        box-shadow: 0 0 25px rgba(0, 242, 255, 0.5); 
+        transform: scale(1.02); /* Slight pop-out effect */
     }
+
+    /* Premium Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: #00f2ff; border-radius: 10px; }
 </style>
+
 
 
 
