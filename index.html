@@ -3,7 +3,7 @@
 <head>
     <title>Ultimate Game Hub</title>
 <style>
-    /* 1. Global Setup */
+    /* 1. Global Setup - Forced centering */
     html, body { 
         background-color: #000 !important; 
         color: #fff; 
@@ -14,15 +14,14 @@
         width: 100%;
         display: flex; 
         flex-direction: column; 
-        align-items: center; 
+        align-items: center; /* THE LOCK: Centers everything on cross-axis */
         overflow-x: hidden;
     }
 
     /* 2. Scaled Down Header */
     h1 {
-        font-size: 2.8rem; /* Smaller size */
-        margin-top: 40px;
-        margin-bottom: 20px;
+        font-size: 2.8rem;
+        margin: 40px 0 20px 0;
         color: #fff;
         text-align: center;
         text-transform: uppercase;
@@ -30,17 +29,17 @@
         text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
     }
 
-    /* 3. Sleeker Search Bar */
+    /* 3. Sleeker Search Bar - Forced Center */
     .game-search { 
         width: 85%; 
-        max-width: 900px; /* Narrower width */
-        padding: 14px 25px; /* Thinner bar */
+        max-width: 900px;
+        padding: 14px 25px; 
         background: #0a0a0a; 
         border: 1.5px solid #00f2ff; 
         border-radius: 50px; 
         color: #fff; 
-        margin: 10px auto 40px auto; 
-        font-size: 1rem; /* Smaller font */
+        margin: 10px auto 40px auto; /* "auto" margins prevent left-shift */
+        font-size: 1rem;
         outline: none;
         display: block;
         text-align: center;
@@ -48,19 +47,21 @@
         box-sizing: border-box;
     }
 
-    /* 4. Container */
+    /* 4. Container - Now with Forced Width and Centering */
     #sections-container { 
         display: flex; 
         flex-direction: column; 
-        align-items: center; 
+        align-items: center; /* Keeps individual bars centered */
         width: 100%; 
+        max-width: 100%; /* Prevents width recalculation when filtering */
+        margin: 0 auto;
         padding-bottom: 60px;
     }
 
-    /* 5. Scaled Down Letter Headers */
+    /* 5. Scaled Down Letter Headers - Always Centered */
     .letter-header { 
         color: #00f2ff; 
-        font-size: 1.6rem; /* Significantly smaller */
+        font-size: 1.6rem;
         margin: 30px auto 15px auto; 
         border-bottom: 1.5px solid #1a1a1a; 
         width: 85%; 
@@ -70,24 +71,24 @@
         text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
         font-weight: bold;
         box-sizing: border-box;
-        display: block;
+        display: block; /* Essential for "auto" margins to work */
     }
 
-    /* 6. Sleeker Game Buttons */
+    /* 6. Sleeker Game Buttons - Always Centered */
     .game-btn { 
         background: #080808; 
         border: 1px solid #222; 
         color: #bbb; 
-        padding: 14px 30px; /* Thinner "pill" bars */
-        margin: 6px auto;   /* Tighter vertical spacing */
+        padding: 14px 30px; 
+        margin: 6px auto; 
         border-radius: 50px; 
         width: 85%;          
         max-width: 900px;   
         cursor: pointer; 
         transition: 0.2s ease; 
-        font-size: 1rem; /* Standard text size */
+        font-size: 1rem; 
         text-align: center;
-        display: block;
+        display: block; /* Essential for "auto" margins to work */
         box-sizing: border-box;
         text-transform: capitalize;
     }
@@ -100,10 +101,8 @@
         transform: scale(1.01);
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background: #00f2ff; border-radius: 10px; }
+    /* Prevent Scrollbar Shift */
+    html { overflow-y: scroll; } /* Always shows scrollbar so page doesn't jump */
 </style>
 
 
