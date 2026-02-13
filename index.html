@@ -3,7 +3,7 @@
 <head>
     <title>Ultimate Game Hub</title>
 <style>
-    /* 1. Global Reset - Forces entire screen to be solid black */
+    /* 1. Global Setup - Solid black background and centered content */
     html, body { 
         background-color: #000 !important; 
         color: #fff; 
@@ -18,7 +18,7 @@
         overflow-x: hidden;
     }
 
-    /* 2. Neon Glowing Header - Perfectly Centered */
+    /* 2. Ultimate Game Hub - Neon Cyan Glow */
     h1 {
         font-size: 4rem;
         margin-top: 60px;
@@ -27,7 +27,6 @@
         text-align: center;
         text-transform: uppercase;
         letter-spacing: 5px;
-        /* Intense Cyan Neon Glow */
         text-shadow: 
             0 0 5px #fff, 
             0 0 10px #fff, 
@@ -37,7 +36,7 @@
             0 0 100px #00f2ff;
     }
 
-    /* 3. The Long Bar (Search Bar) - Centered & Rounded */
+    /* 3. The Long Bar (Search Bar) - Centered & Pill Shaped */
     .game-search { 
         width: 90%; 
         max-width: 1100px; 
@@ -50,7 +49,7 @@
         font-size: 1.3rem;
         outline: none;
         display: block;
-        text-align: center; /* Centers the placeholder text */
+        text-align: center; /* Centers the "Search 1,000+ games..." text */
         box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
         box-sizing: border-box;
         transition: 0.4s ease;
@@ -62,16 +61,16 @@
         transform: scale(1.01);
     }
 
-    /* 4. Container for Game Bars */
+    /* 4. Main Container */
     #sections-container { 
         display: flex; 
         flex-direction: column; 
-        align-items: center; 
+        align-items: center; /* Centers the entire stack of bars */
         width: 100%; 
         padding-bottom: 100px;
     }
 
-    /* 5. Letter Headers - Centered with Glow */
+    /* 5. Letter Headers - Centered & Glowing */
     .letter-header { 
         color: #00f2ff; 
         font-size: 2.5rem; 
@@ -79,7 +78,7 @@
         border-bottom: 2px solid #1a1a1a; 
         width: 90%; 
         max-width: 1100px; 
-        text-align: center; /* Centers the A, B, C, etc. */
+        text-align: center; /* Centers the letter/number headers */
         padding-bottom: 10px;
         text-shadow: 0 0 15px rgba(0, 242, 255, 0.8);
         font-weight: bold;
@@ -87,20 +86,20 @@
         box-sizing: border-box;
     }
 
-    /* 6. Game Buttons - The Long "Pill" Bars */
+    /* 6. Game Buttons - Centered Long Bars */
     .game-btn { 
         background: #080808; 
         border: 1px solid #222; 
         color: #bbb; 
         padding: 22px 45px; 
-        margin: 12px 0;
+        margin: 12px auto;   /* auto centers the bar on the page */
         border-radius: 50px; 
         width: 90%;          
         max-width: 1100px;   
         cursor: pointer; 
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
         font-size: 1.2rem;
-        text-align: left;    /* Keeps game names on the left of the bar */
+        text-align: center;  /* Centers the game name inside the bar */
         display: block;
         box-sizing: border-box;
         text-transform: capitalize;
@@ -112,14 +111,15 @@
         color: #fff; 
         background: #111;
         box-shadow: 0 0 25px rgba(0, 242, 255, 0.5); 
-        transform: scale(1.02); /* Slight pop-out effect */
+        transform: scale(1.02);
     }
 
-    /* Premium Scrollbar */
+    /* Custom Neon Scrollbar */
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background: #00f2ff; border-radius: 10px; }
 </style>
+
 
 
 
